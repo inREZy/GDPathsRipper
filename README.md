@@ -1,2 +1,2 @@
 # GDPathsRipper
-A little program that replaces server addresses for Geometry Dash.
+A little program that replaces server addresses for Geometry Dash PC & Android.
