@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	appVersion     string = "2.0"
+	appVersion     string = "2.0.1"
 	officialServer string = "www.boomlings.com/database"
 )
 
@@ -108,6 +108,13 @@ func (m Model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.isTyping = false
 				m.isFinished = true
 			}
+		case "r":
+			m.selectedFile = ""
+			m.textInput.SetValue("")
+
+			m.isFinished = false
+			m.isTyping = false
+			m.isSelecting = true
 		}
 
 	}
@@ -159,7 +166,7 @@ func (m Model) View() string {
 		s.WriteString("Status: " + m.finishedMessage + "\n\n")
 	}
 
-	s.WriteString("Press 'ESC' to quit.")
+	s.WriteString("Press 'ESC' to quit, 'R' to retry.")
 
 	return s.String()
 }
